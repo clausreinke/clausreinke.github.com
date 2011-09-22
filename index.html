@@ -5,13 +5,16 @@
   <title>Claus Reinke</title>
 
   <style type="text/css">
-  .site  { padding: 1%; width: 48%; float: left }
+  #sites { padding: 1%; width: 20%; float: left; font-size: smaller }
+  .site  { margin-bottom: 1em }
+  #intro { margin-bottom: 1em }
   .clear { clear: both }
   </style>
 
 </head>
 
 <body>
+    <header>
     [<a href="https://github.com/clausreinke">Github Projects</a>]
     [<a href="http://community.haskell.org/~claus/">Haskell Projects</a>]
     [<a href="http://www.haskellers.com/user/claus/">Haskellers.com profile</a>]
@@ -19,54 +22,15 @@
     [<a href="http://www.youtube.com/user/whycombinator">Screencasts</a>]
     [<a href="http://community.haskell.org/~claus/publications/">Publications</a>]
     [<a href="http://community.haskell.org/~claus/talks/">Talks</a>]
+    </header>
 
-<p>
-My interests evolve around <strong>(declarative) programming
-languages</strong>: <em>language design and implementation</em>,
-<em>tool development</em>, and <em>programming techniques</em>.  Having
-looked into most of the major programming paradigms, I've more or less
-settled on a combination of functional and concurrent programming as the
-main paradigms I like to see supported well, directly in the language
-design. Occasionally, logic and object-oriented programming also come in
-handy as programming paradigms, but language designs built solely around
-these two tend to be less helpful for general programming.
-</p>
-<p>
-If this sounds odd to you, consider embedded domain-specific languages
-and language support for building abstractions: functional abstraction
-seems to do very well for the latter, making functional languages good
-hosts for embedded-DSL-based development. Also, object-oriented and
-logic programming can be supported reasonably well as embedded DSLs,
-while concurrent programming needs language support, and functional
-programming without good functional abstraction is just painful.
-</p>
-<p>
-On a purely technical basis, I have been tempted to stick with Haskell,
-helping to address its remaining shortcomings. The problem is that this
-ignores social rationales, in particular, what I would call momentum: so
-many developers have been using Java and Php that their needs have
-driven the development of frameworks and tools to ease some of the
-technical disadvantages of the language (the proliferation of frameworks
-has its own disadvantages, but I am sometimes envious of Java's Eclipse
-community). However, there is a storm brewing here, with Javascript
-having the potential to reach more developers than Java or Php ever had
--- and its momentum is building rapidly. Javascript is not without
-problems, but it is surprising what one can achieve by focussing on the
-good parts of the language.
-</p>
-<p>
-It remains to be seen what can be done in terms of improving or
-scaffolding the Javascript language, but this is where I would like to
-focus my efforts in the immediate future. So, if you are looking for a
-Javascript coder with my <a
-href="http://libraryinstitute.wordpress.com/about/">background</a> and
-interests, please <a href="https://github.com/clausreinke">get in
-touch</a>.  </p>
-<p>
-My web home is rather distributed these days, so this is
-currently more of a sites map than a home page:
+<div id="content">
 
 <div id="sites">
+<div id="intro" class="clear">
+My web home is rather distributed these days, so this is
+currently more of a sites map than a home page:
+</div>
 
 <div class="site">
 <em>Recent projects</em> are likely to appear on <a
@@ -109,7 +73,61 @@ are available online, as well.
 
 </div>
 
+<article id="interests">
+<p>
+My interests evolve around <strong>(declarative) programming
+languages</strong>: <em>language design and implementation</em>,
+<em>tool development</em>, and <em>programming techniques</em>.  Having
+looked into most of the major programming paradigms, I've more or less
+settled on a <em>combination of functional and concurrent programming</em> as
+the main paradigms I like to see supported well, directly in the language
+design. Occasionally, logic and object-oriented programming also come in
+handy as programming paradigms, but language designs built solely around
+these two tend to be less helpful for general programming.
 </p>
+<p>
+If this sounds odd to you, consider <em>embedded domain-specific languages
+and language support for building abstractions</em>: functional abstraction
+seems to do very well for the latter, making functional languages good
+hosts for embedded-DSL-based development. Also, object-oriented and
+logic programming can be supported reasonably well as embedded DSLs,
+while concurrent programming needs language support, and functional
+programming without good functional abstraction is just painful.
+</p>
+<p>
+On a purely technical basis, I have been tempted to stick with <em>Haskell</em>,
+helping to address its remaining shortcomings. The problem is that this
+ignores social rationales, in particular, what I would call momentum: so
+many developers have been using Java and Php that their needs have
+driven the development of frameworks and tools to ease some of the
+technical disadvantages of the language (the proliferation of frameworks
+has its own disadvantages, but I am sometimes envious of Java's Eclipse
+community). However, there is a storm brewing here, with <em>Javascript</em>
+having the potential to reach more developers than Java or Php ever had
+-- and its momentum is building rapidly.
+</p>
+<p>
+Javascript is not without problems, but it is surprising what one can achieve
+by focussing on the good parts of the language: out of the box, it supports
+functional, object-oriented, and aspect-oriented programming. Its main
+problems are a syntax and APIs that hamper extensive use of functional
+programming, semantics and APIs that hamper equational reasoning, and an
+inertia (the flip side of momentum) that hampers attempts to change the
+language (none of which are helpful when loooking at concurrency support).
+</p>
+<p>
+It remains to be seen what can be done in terms of improving the Javascript
+language or scaffolding it with tool support, but this is where I would like to
+focus my efforts in the immediate future. So, if you are looking for a
+Javascript coder with my <a
+href="http://libraryinstitute.wordpress.com/about/">background</a> and
+interests, please <a href="https://github.com/clausreinke">get in
+touch</a>.
+</p>
+</article>
+<p>
+
+</div>
 
 </body>
 </html>
