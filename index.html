@@ -8,61 +8,28 @@
 
   <style type="text/css">
   #sites { padding: 1%; width: 20%; float: left; font-size: smaller }
-  #old   { padding: 1%; width: 20%; float: right; font-size: smaller }
+  #news  { padding: 1%; width: 20%; float: right; font-size: smaller;
+           background-color: lightgrey; border-radius: 5% }
   .site  { margin-bottom: 1em }
   #intro { margin-bottom: 1em }
   .clear { clear: both }
+  .title { text-align: center; font-style: italic }
 
-  #twitter-widget-1 { width: 75% }
   </style>
-
-  <script>
-  // catch dynamically inserted iframe when its ready and
-  // insert style to hide avatars, fullname and to adjust size
-  // - no fun - why are you holding tweets hostage, twitter??
-  // - these internal details are unlikely to be stable...
-  // - long-term complaints on twitter developers forum
-  // - watch this and give up on timeline embedding if necessary
-  // works in Chrome (28), Opera (12.16), Safari (old);
-  // works unstyled in FireFox (23)
-  function insertStyle(doc,opn) {
-    // console.log("insertStyle",opn);
-    var style = [".avatar, .full-name {display: none}"
-                ,".timeline .stream .tweet,"
-                ,".timeline .stream .tweet .header {padding: 0px 0px 0px 0px}"
-                ,".stream .h-feed li,"
-                ,".p-nickname,"
-                ,".stream time,"
-                ,".timeline .stream .tweet .e-entry-content .e-entry-title {font-size: smaller}"].join("\n");
-    var op = doc[opn];
-    doc[opn] = function() {
-                // console.log(opn,arguments);
-                var res = op.apply(this,arguments);
-                if (arguments[0].id==="twitter-widget-1") {
-                  // console.log("inserting style",arguments[0]);
-                  var ifdoc = arguments[0].contentDocument;
-                  var st = ifdoc.createElement("style");
-                  st.type = "text/css";
-                  (st.styleSheet && (st.styleSheet = style))
-                  || st.appendChild(ifdoc.createTextNode(style));
-                  ifdoc.getElementsByTagName("head")[0].appendChild(st);
-                }
-                return res;
-              };
-  }
-  </script>
 
 </head>
 
 <body>
     <header>
-    <span id="old">
-    <em>older resources:</em>
-    [<a href="http://community.haskell.org/~claus/">Haskell Projects</a>]
-    [<a href="http://www.haskellers.com/user/claus/">Haskellers.com profile</a>]
-    [<a href="http://community.haskell.org/~claus/publications/">Publications</a>]
-    [<a href="http://community.haskell.org/~claus/talks/">Talks</a>]
-    </span>
+
+    <div id="news">
+    <span class="title">News</span>
+      <br>
+      <strong>typescript-tools v0.3.1</strong> released (commandline access to
+      TypeScript language services, basis of Vim/Emacs/Sublime plugins)
+      [<a href="https://www.npmjs.org/package/typescript-tools">npm</a>]
+      [<a href="https://github.com/clausreinke/typescript-tools">github</a>]
+    </div>
     <span id="new">
     [<a href="https://clausreinke.github.com/">Home</a>]
     [<a href="https://clausreinke.github.com/projects.html">Projects</a>]
@@ -78,17 +45,6 @@
 <div id="content">
 
 <div id="sites">
-<div id="intro" class="clear">
-My web home is rather distributed these days, so this is
-part sites map, part home page:
-</div>
-
-<div class="site">
-<em><a href="projects.html">Recent projects</a></em> are likely to appear on <a
-href="https://github.com/clausreinke">my Github account</a>.
-Currently, these tend to be <em>Javascript projects</em> or
-<em>Vim support for Javascript developers</em>.
-</div>
 
 <div class="site" id="typescript-tools">
 I develop <strong><a
@@ -100,37 +56,34 @@ href="http://www.typescriptlang.org/">TypeScript</a> Language Services
 
 <div class="site" id="tern">
 I have been helping out with the <a
-href="https://github.com/marijnh/tern_for_vim">Vim plugin</a> for <a
+href="https://github.com/marijnh/tern_for_vim">Vim plugin</a> for
+Marijn Haverbeke's <a
 href="https://github.com/marijnh/tern">Tern</a>, a Javascript analyser for
 intelligent Javascript editing support (<em>types, jump-to-definition, completion,
 documentation lookup, find-references, renaming</em>).
 </div>
 
-<div class="site" id="estr">
-Before collaborating on Tern, I used to focus on my own Javascript tooling <strong><a
-href="https://github.com/clausreinke/estr">estr</a></strong> (<em>code
-traversal, navigation, transformation</em>;
-<a href="http://clausreinke.github.com/estr">online demo</a>).
-</div>
+<!--
+  <div class="site" id="estr">
+  Before collaborating on Tern, I used to focus on my own Javascript tooling <strong><a
+  href="https://github.com/clausreinke/estr">estr</a></strong> (<em>code
+  traversal, navigation, transformation</em>;
+  <a href="http://clausreinke.github.com/estr">online demo</a>).
+  </div>
+-->
 
 <div class="site" id="js-tools">
 I help to manage <strong><a
 href="http://groups.google.com/group/js-tools/about">js-tools</a></strong>, the
-mailing list for Javascript tool developers, and curate the <strong><a
-href="http://clausreinke.github.com/js-tools/resources.html">js-tools resources</a></strong>.
-</div>
-
-<div class="site" id="blog">
-I do have <a href="http://libraryinstitute.wordpress.com/">a blog</a>,
-but tend to be more active in mailing lists, so my blog is not as busy
-as it should be.
+mailing list for Javascript tool developers, and its <strong><a
+href="http://clausreinke.github.com/js-tools/resources.html">list of resources</a></strong>.
 </div>
 
 <div class="site" id="haskell">
+In a previous life, I used to be a <a href="http://www.haskellers.com/user/claus/">Haskeller</a>.
 If you are looking for my old <em>Haskell projects</em>, you'll find most of them via
 <a href="http://community.haskell.org/~claus/">my Haskell Community
-page</a>. I also have a <a
-href="http://www.haskellers.com/user/claus/">Haskellers profile</a>.
+page</a>.
 </div>
 
 <div class="site" id="youtube">
@@ -152,6 +105,12 @@ and <a href="http://community.haskell.org/~claus/talks/">talks</a>
 are available online, as well.
 </div>
 
+<div class="site" id="blog">
+I do have <a href="http://libraryinstitute.wordpress.com/">a blog</a>,
+but tend to be more active in mailing lists, so my blog has not seen much
+activity recently.
+</div>
+
 </div>
 
 <div id="interests">
@@ -163,37 +122,29 @@ programming languages. I have worked with Javascript/TypeScript, Haskell, and
 lots of other programming languages, starting from way before there was a web.
 </p>
 <p>
+My <a href="projects.html">recent projects</a> tend to be <em>Javascript
+projects</em> or <em>Vim support for Javascript and TypeScript developers</em>
+or WebApp-related technology experiments.  Their sources are likely to appear
+on <a href="https://github.com/clausreinke">my Github account</a>.
+</p>
+<p>
 My interests evolve around <em>(declarative) programming languages</em>:
 <strong>language design and implementation</strong>, <strong>tool
 development</strong>, and <strong>programming techniques</strong>.  Having
 looked into most of the major programming paradigms, I've more or less settled
 on a <em>combination of functional and concurrent programming</em> as the main
 paradigms I like to see supported well, directly in the language design.
-Occasionally, logic and object-oriented programming also come in handy as
+Logic and object-oriented programming also come in handy as
 programming paradigms, but language designs built solely around these two tend
 to be less helpful for general programming.
 </p>
-<!--
-<p>
-If this sounds odd to you, consider <em>embedded domain-specific languages
-and language support for building abstractions</em>: functional abstraction
-seems to do very well for the latter, making functional languages good
-hosts for embedded-DSL-based development. Also, object-oriented and
-logic programming can be supported reasonably well as embedded DSLs,
-while concurrent programming needs language support, and functional
-programming without good functional abstraction is just painful.
-</p>
--->
 <p>
 On a purely technical basis, I have been tempted to stick with <em>Haskell</em>,
-helping to address its remaining shortcomings. The problem is that this
-ignores social rationales, in particular, what I would call momentum: so
-many developers have been using Java and Php that their needs have
-driven the development of frameworks and tools to ease some of the
-technical disadvantages of the language (the proliferation of frameworks and
-complexity of tools have their own disadvantages). And there is a storm
-brewing here, with <em>Javascript</em> having the potential to reach more
-developers than Java or Php ever had -- and its momentum is building rapidly.
+helping to address its remaining shortcomings. The main reasons for considering
+Javascript were social in nature, in particular, what I would call momentum:
+<em>Javascript</em> had the potential to reach more developers and devices --
+which has been attracting ideas, tools, experiments, programmer and tool builder
+activity.
 </p>
 <p>
 Javascript is not without problems, but it is surprising what one can achieve
@@ -206,35 +157,20 @@ reasoning, and an inertia (the flip side of momentum) that hampers attempts to
 change the language (none of which are helpful when looking at concurrency
 support; even functional programming improvements sometimes encounter
 resistance).
+It remains to be seen what can be done in terms of improving the Javascript
+experience by scaffolding it with tool support.
 </p>
 <p>
-It remains to be seen what can be done in terms of improving the Javascript
-language or scaffolding it with tool support (<a
-href="http://clausreinke.github.com/js-tools/resources.html#group:language-extensions">ES6
-modules and classes, as well as types can be supported by transpilers</a>, so
-2013 will see many of these features used in anger; sadly, the spec has lagged
-behind implementations, so the two are sometimes out of sync). This is
-where I would like to focus my efforts in the immediate future. <strong>If
-you are looking for a Javascript coder and tool developer with my <a
+<strong>If you are looking for a Javascript coder and tool developer with my <a
 href="http://libraryinstitute.wordpress.com/about/">background</a> and
-interests, please <a href="https://github.com/clausreinke">get in touch</a></strong>. If
-you are developing Javascript tools yourself, or want to stay up to date in
-that area, you want to check out our new <a
-href="http://groups.google.com/group/js-tools/about">js-tools</a> group and its
-<a href="http://clausreinke.github.com/js-tools/resources.html">list of resources</a>.
+interests, please <a href="https://github.com/clausreinke">get in
+touch</a></strong>.
 </p>
 
-<p id="twitter-container">
-<strong>Recent Tweets</strong>
+<!--
 <a href="https://twitter.com/clausreinke" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @clausreinke</a>
 <a class="twitter-timeline" data-chrome="nofooter noheader noborders transparent" data-tweet-limit="4" data-dnt="true" href="https://twitter.com/clausreinke"  data-widget-id="358230282421280771">Tweets by @clausreinke</a>
-</p>
-<script>
-insertStyle(document.getElementById("twitter-container"),"replaceChild");
-insertStyle(document.getElementById("twitter-container"),"insertBefore"); // this one, atm...
-insertStyle(document.getElementById("twitter-container"),"appendChild");
-</script>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+-->
 
 </div>
 
