@@ -9,7 +9,11 @@
   <style type="text/css">
   .clear { clear: both }
 
-  #content { }
+  #active   .status { background-color: lightgreen }
+
+  #offandon .status { background-color: lightgrey }
+
+  #inactive .status { background-color: red }
 
   .project { padding-top: 3em; clear: both }
   .project .description,
@@ -33,16 +37,14 @@
     <em id="note">(Javascript specialist, available for work in Germany, or remotely)</em>
     </header>
 
-<h1>Recent projects</h1>
-
-<div id="content">
+<div id="active">
 
 <div class="project" id="typescript-tools">
   <div class="description">
   <h2>
   <a href="https://github.com/clausreinke/typescript-tools">typescript-tools</a>
   </h2>
-  <em>(status: active)</em>
+  <em class="status">(status: active)</em>
 
   <p>
   TypeScript (Microsoft, October 2012) offers EcmaScript 6 features for
@@ -67,36 +69,29 @@
   <img src="images/typescript-tools.PNG"/>
 </div>
 
-<div class="project" id="tern">
-  <div class="description">
-  <h2>
-  <a href="https://github.com/marijnh/tern_for_vim">Tern plugin for Vim</a>
-  </h2>
-  <em>(status: active)</em>
-
-  <p>
-  A Vim plugin that provides <a href="http://ternjs.net/">tern</a>-based
-  JavaScript editing support (type and JSON information, jump-to-definition,
-  completion, etc.). Tern and tern plugin for Vim are authored by Marijn
-  Haverbeke, I've been helping out with the Vim side of things.
-  </p>
-  </div>
-
-  <img src="images/tern.PNG"/>
 </div>
+
+<div id="offandon">
 
 <div class="project" id="petrinets">
   <div class="description">
   <h2>
   <a href="https://github.com/clausreinke/netedit">JavaScript Petri Nets</a>
   </h2>
-  <em>(status: work in progress, unpublished)</em>
+  <em class="status">(status: work in progress, unpublished)</em>
 
   <p>
   SVG-based in-browser editor and simulator for Coloured Petri Nets with JavaScript
   inscriptions; basic editor done; code generation target designed; integration
   of editor, code generator, and simulator planned; uses ideas from my old
   Haskell-Coloured Petri Nets tool, adapted for JavaScript and browsers.
+  </p>
+
+  <p>
+  I started this as a technology experiment many years ago, to get acquainted with
+  things like SVG, in-browser filesystem handling, and multi-module JS project
+  (SVG is standard by now, filesystem APIs still have no common standard,
+  and standard module handling is about to come to ES6, at last)
   </p>
   </div>
 
@@ -108,7 +103,7 @@
   <h2>
   <a href="http://clausreinke.github.com/js-tools/resources.html">Javascript development tools - resources</a>
   </h2>
-  <em>(status: list active, resources need review)</em>
+  <em class="status">(status: list active, resources need review)</em>
   <p>
   We started the <a
   href="https://groups.google.com/forum/#!aboutgroup/js-tools">js-tools mailing
@@ -117,8 +112,44 @@
   a resource listing for JS developer tool links (it is a github repo, so to
   provide information updates, just open an issue on the repo).
   </p>
+  <p>
+  Once upon a time, I hoped that JS tool developers would use our mailing list 
+  as a one-stop shopping and announcement medium, and would eagerly join me in
+  keeping resource listing information up to date. Unfortunately, JS tool 
+  developers, even though often present on the mailing list, and sometimes engaging
+  in discussions, prefer using tool-specific forums for announcements. And pull
+  requests for the resource listing have been so rare that the listing has grown
+  quite stale.
+  </p>
   </div>
   <img src="images/jstools-resources.PNG"/>
+</div>
+
+</div>
+
+<div id="inactive">
+
+<div class="project" id="tern">
+  <div class="description">
+  <h2>
+  <a href="https://github.com/marijnh/tern_for_vim">Tern plugin for Vim</a>
+  </h2>
+  <em class="status">(status: project still active, I'm no longer involved)</em>
+
+  <p>
+  A Vim plugin that provides <a href="http://ternjs.net/">tern</a>-based
+  JavaScript editing support (type and JSON information, jump-to-definition,
+  completion, etc.). Tern and tern plugin for Vim are authored by Marijn
+  Haverbeke, I helped out with the Vim side of things when the project
+  started.
+  </p>
+  <p>
+  I mostly provided expertise in Vim plugin development (having supported
+  various compiler plugins for many years, such as haskellmode for Vim).
+  </p>
+  </div>
+
+  <img src="images/tern.PNG"/>
 </div>
 
 <div class="project" id="sudoku">
@@ -126,7 +157,7 @@
   <h2>
   <a href="http://clausreinke.github.com/playground/sudoku/sudoku.html">Sudoku Web App</a>
   </h2>
-  <em>(technology experiment; status: done, inactive)</em>
+  <em class="status">(technology experiment; status: done, inactive)</em>
   <p>
   An experiment in HTML web app interactions. Sudoku grid with solution helpers:
   players can create problems, store them as bookmarks, and solve them with or
@@ -143,7 +174,7 @@
   <h2>
   <a href="http://clausreinke.github.com/estr">estr - EcmaScript traversals and transformations</a>
   </h2>
-  <em>(status: no longer active - use typescript-tools or tern instead)</em>
+  <em class="status">(status: no longer active - use typescript-tools or tern instead)</em>
 
   <p>
   Scope-based JS code navigation, directly in JS code editors, or via
@@ -162,7 +193,7 @@
   <h2>
   <a href="https://github.com/clausreinke/scoped_tags">Scope-aware tags files for Vim</a>
   </h2>
-  <em>(status: no longer active - use typescript-tools or tern instead)</em>
+  <em class="status">(status: no longer active - use typescript-tools or tern instead)</em>
   <p>
   Standard tags files have no support for tags with non-global lexical scope.
   Scoped tags (generated by estr) make lexical scope information available to
@@ -180,7 +211,7 @@
   <h2>
   <a href="https://github.com/clausreinke/playground/tree/gh-pages/cross-and-circle">Cross and Circle</a>
   </h2>
-  <em>(technology experiment; status: done, inactive)</em>
+  <em class="status">(technology experiment; status: done, inactive)</em>
   <p>
   Sketch of a client/server app. Generic Cross and Circle game running in the
   browser (can be used without server); minimal graphics, realized via DOM/CSS;
@@ -198,7 +229,7 @@
   <h2>
   <a href="https://github.com/clausreinke/modules.js">Module loader</a>
   </h2>
-  <em>(status: inactive)</em>
+  <em class="status">(status: inactive)</em>
   <p>
   An older project (end 2010), extensively documented in a blog post <a
   href="http://libraryinstitute.wordpress.com/2010/12/01/loading-javascript-modules/">on
